@@ -7,9 +7,10 @@ const server = http.createServer((req, res) => {
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>DevOps CI/CD Demo</title></head>
 <body>
-    <h1>Welcome to My DevOps Project</h1>
+
+<h1>Development Branch</h1>
     <p>Node.js application deployed using Jenkins CI/CD.</p>
-    <p>Version: Main</p>
+    <p>Version: Development</p>
 </body>
 </html>`);
 });
