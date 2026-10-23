@@ -1,3 +1,4 @@
+HEAD
 # Jenkins Node.js CI/CD Lab Project
 
 ## Objective
