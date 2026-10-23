@@ -1,69 +1,146 @@
 # Jenkins Node.js CI/CD Lab Project
 
-## Objective
-Create two Git branches that modify a Node.js app, track work with Git, and use Jenkins to test and deploy the app to a local Windows server.
+## 1. Project Overview
 
-## Requirements
-- Git
-- Node.js and npm
-- Java supported by your Jenkins version
-- Jenkins running on Windows with Pipeline and Git plugins
+This project demonstrates Continuous Integration and Continuous Delivery (CI/CD) using Jenkins, Node.js, npm, Git, and GitHub.
 
-## Run locally
-Open Command Prompt in this folder:
-```cmd
+The application is maintained using Git branches. Jenkins automatically checks out the source code, installs dependencies, runs tests, and deploys the application locally.
+
+## 2. Objectives
+
+- Understand Git and GitHub version control.
+- Create and manage `main`, `dev`, and `feature` branches.
+- Develop a simple web application using Node.js.
+- Automate build and testing using Jenkins.
+- Deploy the application on a local server.
+- Understand the CI/CD pipeline workflow.
+
+## 3. Technologies Used
+
+- **Node.js:** Runs the web application.
+- **JavaScript:** Implements application logic.
+- **Git:** Tracks source-code changes.
+- **GitHub:** Hosts the project repository.
+- **Jenkins:** Automates the CI/CD pipeline.
+- **npm:** Manages packages and runs tests.
+- **PowerShell:** Supports deployment on Windows.
+
+## 4. Project Structure
+
+```text
+JenkinsNodeProject/
+├── app.js
+├── package.json
+├── test.js
+├── Jenkinsfile
+├── README.md
+└── .gitignore
+```
+
+## 5. Application Features
+
+- Displays a welcome message in the browser.
+- Runs using a Node.js HTTP server.
+- Supports automated tests.
+- Demonstrates changes using Git branches.
+- Integrates with Jenkins for automated testing and deployment.
+
+## 6. Git Branches
+
+- **main:** Contains the main application version.
+- **dev:** Used to develop and test development changes.
+- **feature:** Used to implement new features.
+
+Changes can be committed separately on each branch and pushed to GitHub.
+
+## 7. Jenkins Pipeline
+
+The Jenkins pipeline includes the following stages:
+
+1. **Checkout:** Retrieves source code from GitHub.
+2. **Install:** Installs the required npm dependencies.
+3. **Test:** Runs automated tests to check the application.
+4. **Deploy:** Starts the Node.js application on the local server.
+
+## 8. How to Run the Project
+
+### Prerequisites
+
+Install Node.js, npm, Git, and Jenkins.
+
+### Step 1: Install dependencies
+
+```bash
+npm install
+```
+
+### Step 2: Run tests
+
+```bash
 npm test
+```
+
+### Step 3: Start the application
+
+```bash
 npm start
 ```
-Open http://localhost:3000. Stop the server with Ctrl+C.
 
-## Create branches
-```cmd
-git init -b main
-git add .
-git commit -m "Initial Node.js application"
+### Step 4: Open the application
 
+Open the following URL in your browser:
+
+```text
+http://localhost:3000
+```
+
+## 9. Git Commands
+
+Check the current branch:
+
+```bash
+git branch
+```
+
+Create a development branch:
+
+```bash
 git switch -c dev
 ```
-Edit app.js on `dev` to show `Development Branch`, then:
-```cmd
-git add app.js
-git commit -m "Update homepage in dev branch"
 
-git switch main
+Create a feature branch:
+
+```bash
 git switch -c feature
 ```
-Edit app.js on `feature` to show `New Feature Branch` and a feature paragraph, then:
-```cmd
-git add app.js
-git commit -m "Add welcome feature"
 
-git switch main
-git merge dev
-git merge feature
-git branch
-git log --oneline --all --graph
+Track and commit changes:
+
+```bash
+git add .
+git commit -m "Update application"
 ```
-Both branches edit app.js, so Git may report a merge conflict. Open app.js, keep the final HTML you want, remove `<<<<<<<`, `=======`, and `>>>>>>>`, save, then run `git add app.js` and `git commit -m "Resolve merge conflict"`.
 
-## Push to GitHub
-Create an empty repository and replace YOUR_USERNAME:
-```cmd
-git remote add origin https://github.com/YOUR_USERNAME/JenkinsNodeProject.git
+Push a branch to GitHub:
+
+```bash
 git push -u origin main
-git push -u origin dev
-git push -u origin feature
 ```
-If `origin` already exists, check it using `git remote -v`.
 
-## Jenkins configuration
-1. Start Jenkins and open http://localhost:8080.
-2. Click New Item, enter `NodeJS-CICD`, choose Pipeline, and click OK.
-3. Under Pipeline, select `Pipeline script from SCM`.
-4. SCM: Git; Repository URL: your GitHub URL; Branch Specifier: `*/main`; Script Path: `Jenkinsfile`.
-5. Save, click Build Now, and inspect Console Output.
+Replace `main` with `dev` or `feature` when pushing those branches.
 
-The Jenkins agent must be Windows-based and have Git, Node.js/npm, and PowerShell on PATH. Configure credentials if the GitHub repository is private.
+## 10. Expected Result
 
-## Deployment note
-The sample pipeline uses port 3000 and stops the process listening on that port before starting the app. Do not use port 3000 for another application while deploying. This is a simple lab demonstration, not a production deployment strategy.
+- The Node.js application runs at `http://localhost:3000`.
+- Automated tests execute successfully.
+- Jenkins runs the configured pipeline stages.
+- Git maintains the project's commit history.
+- GitHub stores the source code and branches.
+
+## 11. Conclusion
+
+This project demonstrates how Git, GitHub, Node.js, npm, and Jenkins work together to implement a basic CI/CD workflow. It helps students understand source-code management, automated testing, and local application deployment.
+
+## 12. Repository
+
+GitHub: https://github.com/eslavathmounika12/JenkinsNodeProject
