@@ -1,0 +1,10 @@
+{
+  "name": "jenkins-node-project",
+  "version": "1.0.0",
+  "description": "Sample Node.js application for a Jenkins CI/CD DevOps lab",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "node test.js"
+  }
+}
